@@ -1,65 +1,51 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import {Clock} from './Clock';
+import { Clock } from './Clock';
+import { Body } from './Body';
+import { Header }  from './Header';
 // import App from './App';
 // import * as serviceWorker from './serviceWorker';
 
-class Header extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      inputValue: ''
-    }
-  }
 
-  onChange = event => this.setState({inputValue: event.target.value});
-  onClick = () => {
-    this.props.onAdd(this.state.inputValue);
-    this.setState({inputValue: ''});
-  }
 
-  render() {
-    return (
-      <Fragment>
-        <div>{this.props.children}</div>
-        <div>
-          <input value={this.state.inputValue} onChange={this.onChange}/>
-          <button onClick={this.onClick}>Add</button>
-        </div>
-      </Fragment>
-    )
-  }
+const App = () => {
+  const [app, setApp] = useState({
+    todos: ['1', '2', '3'],
+    showClock: true
+  });
+
+  const onAdd = todo => setApp({...app, todos: [...app.todos, todo]});
+
+  const onSwitch = () => setApp({...app, showClock: !app.showClock});
+
+  return (
+    <div className="app">
+      <Header onAdd={onAdd}>This is our ToDo</Header>
+      <Body todoList={app.todos} />
+       <button onClick={onSwitch}>Turn Clock {app.showClock ? 'Off' : 'On'}</button>
+       {app.showClock && <Clock onSwitch={onSwitch}/>}
+    </div>
+  )
 }
 
-class Body extends React.Component {
-  render() {
-    return (
-      <Fragment>
-         {this.props.todoList.map(todo => <div key={todo}>{todo}</div>)}
-         <div>
-           <Clock/>
-          </div>
-      </Fragment>
-    )
-  }
-}
+// class App extends React.Component {
+//   state = {todos: ['1', '2', '3'], showClock: true};
 
-Body.defaultProps = {todoList: []};
-Body.displayName = 'TodoList';
-
-class App extends React.Component {
-  state = {todos: ['1', '2', '3']}
-  onAdd = todo => this.setState({todos: [...this.state.todos, todo]});
-  render() {
-    return (
-      <div className="app">
-        <Header onAdd={this.onAdd}>This is our ToDo</Header>
-        <Body todoList={this.state.todos} />
-      </div>
-    )
-  }
-}
+//   onAdd = todo => this.setState({todos: [...this.state.todos, todo]});
+//   onSwitch = () => this.setState({showClock: !this.state.showClock});
+//   render() {
+//     const {todos, showClock} = this.state;
+//     return (
+//       <div className="app">
+//         <Header onAdd={this.onAdd}>This is our ToDo</Header>
+//         <Body todoList={todos} />
+//          <button onClick={this.onSwitch}>Turn Clock {showClock ? 'Off' : 'On'}</button>
+//          {showClock && <Clock onSwitch={this.onSwitch}/>}
+//       </div>
+//     )
+//   }
+// }
 
 ReactDOM.render(
   <React.StrictMode>

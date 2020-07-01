@@ -1,25 +1,46 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
-export class Clock extends React.Component {
-   state = {time: new Date()};
 
-   tick = () => this.setState({time: new Date})
+export const Clock = () => {
+   const [time, setTime] = useState(new Date());
 
-   componentDidMount() {
-      this.timer = setInterval(() => this.tick(), 1000);
+   const tick = () =>  {
+         setTime(new Date);
+         console.log("Tick");
    }
 
-   componentWillUnmount() {
-      clearInterval(this.timer);
-   }
+   useEffect(() => {
+      const timer = setInterval(() => tick(), 1000);
+      return () => clearInterval(timer);
+   }, []);
 
-   render() {
-      return (
-         <div>
-            <div></div>
-            <div>Time: {this.state.time.toLocaleTimeString()}</div>
-         </div>
-      )
-   }
+   return (
+      <div>
+         <div>Time: {time.toLocaleTimeString()}</div>
+      </div>
+   )
 }
+
+// export class Clock extends React.Component {
+//    state = {time: new Date()};
+
+//    tick = () => this.setState({time: new Date})
+
+//    componentDidMount() {
+//       this.timer = setInterval(() => this.tick(), 1000);
+//    }
+
+//    componentWillUnmount() {
+//       clearInterval(this.timer);
+//    }
+
+//    render() {
+//       return (
+//          <div>
+//             <div></div>
+//             <div>Time: {this.state.time.toLocaleTimeString()}</div>
+//          </div>
+//       )
+//    }
+// }
 
