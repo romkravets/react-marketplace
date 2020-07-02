@@ -3,7 +3,9 @@ import T, { string } from 'prop-types';
 import './index.css'
 
 export const Text = ({size, children}) => (
-   <div className="text" style={{fontSize: size}}>{children}</div>
+   <div className="text" style={{fontSize: size}}>
+      {children}
+   </div>
 );
 
 Text.propTypes = {
