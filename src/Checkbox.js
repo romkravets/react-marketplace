@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import T from 'prop-types';
+import { toDoListPropTypes } from './propTypes';
 
 export const Checkbox = ({todo, onSwitch}) => {
    const [checked, setChecked] = useState(false);
@@ -21,10 +21,5 @@ export const Checkbox = ({todo, onSwitch}) => {
       />
 }
 
-Checkbox.propsTyes = {
-   todo: T.shepe({
-      _id: T.string.isRequired,
-      text: T.string.isRequired,
-      completed: T.bool.isRequired,
-   }).isRequired,
-}
+Checkbox.propTypes = toDoListPropTypes;
+

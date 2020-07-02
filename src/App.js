@@ -4,13 +4,17 @@ import './App.css';
 import { Text } from './Text';
 import { ToDoInput } from './ToDoInput';
 import { Icon } from './Icon';
+import { ToDoItem } from './ToDoItem';
 
 function App() {
   return (
     <div className="application">
       <Text size="32px">Todos</Text>
       <ToDoInput onAdd={todo => console.log(todo)}/>
-      <Icon name="remove" color="#000"/>
+      <ToDoItem 
+         todo={{ _id: 'test', text: "React", completed: false }}
+         onSwitch={todo => console.log(todo)}
+      />
     </div>
   );
 }
