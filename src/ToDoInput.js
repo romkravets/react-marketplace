@@ -8,7 +8,9 @@ export const ToDoInput = ({ onAdd }) => {
 
    const onSubmit = event => {
       event.preventDefault();
+      if (value === '' ) return;
       onAdd(value);
+      setInputValue('');
    }
 
    return (

@@ -2,8 +2,8 @@ import React from 'react';
 import T, { string } from 'prop-types';
 import './index.css'
 
-export const Text = ({size, children}) => (
-   <div className="text" style={{fontSize: size}}>
+export const Text = ({size, children, ...props}) => (
+   <div className="text" style={{fontSize: size, ...props }}>
       {children}
    </div>
 );

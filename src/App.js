@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import uuid from 'uuid/v4';
+import { v4 as uuidv4 }  from 'uuid';
 import logo from './logo.svg';
 import './App.css';
 import { Text } from './Text';
@@ -13,12 +13,27 @@ function App() {
    const onAdd = text => setTodos([
       ...todos,
       {
-         _id: uuid(),
+         _id: uuidv4(),
          text,
          completed: false,
       }
    ])
 
+   const onSwotch = todoId =>
+   setTodos(
+      todos.map(
+         todo => todoId === todo._id
+            ?
+               { ...todo, completed: !todo.completed }
+            :  todo,
+            ),
+   );
+
+   const onRemove = todoId => setTodos(
+      todos.map(
+         todo =>  todoId === todo._id ? {} : todo,
+      )
+   );
 
   return (
     <div className="application">
@@ -27,8 +42,10 @@ function App() {
       <div className="toDoList">
          {todos.map(
             todo => <ToDoItem
+            key={todo._id}
             {...{todo}}
-            onSwitch={todo => console.log(todo)}
+            onSwitch={onSwotch}
+            onRemove={onRemove}
             />
          )}
       </div>
