@@ -24,6 +24,11 @@ code {
   color: rgba(0, 0, 0, .6);
 }
 
+.toDoList {
+  display: flex;
+  width: 100%;
+}
+
 .toDoItem {
   display: flex;
   flex-direction: row;
@@ -31,4 +36,5 @@ code {
   align-items: center;
   width: 50%;
   padding-top: 20px;
+  margin: auto;
 }
