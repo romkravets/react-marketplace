@@ -17,7 +17,7 @@ export const Body = ({todoList}) => (
 //      )
 //    }
 //  }
- 
- Body.defaultProps = {todoList: []};
- Body.displayName = 'TodoList';
- Body.propTypes = {todoList: T.arrayOf(T.string)};
+
+Body.defaultProps = {todoList: []};
+Body.displayName = 'TodoList';
+Body.propTypes = {todoList: T.arrayOf(T.string)};
