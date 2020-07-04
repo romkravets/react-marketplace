@@ -5,23 +5,32 @@ import PostList from './components/PostList';
 import axios from 'axios';
 
 function App() {
-  const [posts, setPosts] = useState({
-    data: [],
-  });
+  const [posts, setPosts] = useState([]);
   const [load, setLoad] = useState(false);
+  const [limit, setLimit] = useState(10);
+
+  console.log(limit, limit);
+
+  const onAdd = () => {
+    return setLimit(limit + 10);
+ }
 
 
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(
-      'https://jsonplaceholder.typicode.com/posts',
+      'https://jsonplaceholder.typicode.com/posts', {
+        params: {
+          _limit: limit,
+         }
+      }
     );
       console.log(result.data);
-      setPosts(result.posts);
+      setPosts(result.data);
+      setLoad(true);
     };
     fetchData();
-  }, []);
- 
+  }, [limit]);
 
 
 // useEffect(() => {
@@ -35,7 +44,6 @@ function App() {
 //         // а не в блоці catch (), щоб не перехоплювати
 //         // виключення з помилок в самих компонентах.
 //         (error) => {
-          
 //         }
 //       )
 // }, [])
@@ -44,7 +52,7 @@ function App() {
 
   return (
     <div className="App">
-      <PostList posts={posts}/>
+      <PostList posts={posts} onAdd={onAdd}/>
     </div>
   );
 }

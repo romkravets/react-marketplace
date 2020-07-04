@@ -1,18 +1,22 @@
 import React from 'react';
 import PostListItem from './PostListItem ';
+import MoreButton from './UI/MoreButton';
 
 
 
 const PostList = (props) => {
-   debugger;
+
    return (
-      <div className="post-items">
-         <PostListItem/>
-         <PostListItem/>
-         <PostListItem/>
-         <PostListItem/>
-      </div>
-   )
+         <div className="post-items">
+         {props.posts.map( post => {
+            return (
+            <PostListItem post={post}/>
+            )
+         })
+         }
+         <MoreButton onAdd={props.onAdd}>Add More</MoreButton>
+         </div>
+      )
 }
 
 export default PostList;
