@@ -1,24 +1,50 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import PostList from './components/PostList';
+import axios from 'axios';
 
 function App() {
+  const [posts, setPosts] = useState({
+    data: [],
+  });
+  const [load, setLoad] = useState(false);
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(
+      'https://jsonplaceholder.typicode.com/posts',
+    );
+      console.log(result.data);
+      setPosts(result.posts);
+    };
+    fetchData();
+  }, []);
+ 
+
+
+// useEffect(() => {
+//     fetch("https://jsonplaceholder.typicode.com/posts")
+//       .then(res => res.json())
+//       .then(
+//         (result) => {
+//          console.log(result);
+//         },
+//         // Примітка: важливо обробляти помилки саме тут,
+//         // а не в блоці catch (), щоб не перехоплювати
+//         // виключення з помилок в самих компонентах.
+//         (error) => {
+          
+//         }
+//       )
+// }, [])
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <PostList posts={posts}/>
     </div>
   );
 }
