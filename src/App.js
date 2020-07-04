@@ -30,9 +30,7 @@ function App() {
    );
 
    const onRemove = todoId => setTodos(
-      todos.map(
-         todo =>  todoId === todo._id ? {} : todo,
-      )
+      todos.filter(todo => todoId !== todo._id),
    );
 
   return (
