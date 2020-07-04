@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, Fragment} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import PostList from './components/PostList';
 import axios from 'axios';
+import Loader from './components/UI/Loader ';
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -32,29 +33,15 @@ function App() {
     fetchData();
   }, [limit]);
 
+  let postsAll = <Loader />;
 
-// useEffect(() => {
-//     fetch("https://jsonplaceholder.typicode.com/posts")
-//       .then(res => res.json())
-//       .then(
-//         (result) => {
-//          console.log(result);
-//         },
-//         // Примітка: важливо обробляти помилки саме тут,
-//         // а не в блоці catch (), щоб не перехоплювати
-//         // виключення з помилок в самих компонентах.
-//         (error) => {
-//         }
-//       )
-// }, [])
-
-
-
-  return (
-    <div className="App">
+  if (load) {
+    postsAll = <div className="App">
       <PostList posts={posts} onAdd={onAdd}/>
-    </div>
-  );
+  </div>
+  }
+
+  return  <Fragment>{postsAll}</Fragment>
 }
 
 export default App;
