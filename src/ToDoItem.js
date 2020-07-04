@@ -25,5 +25,5 @@ ToDoItem.propTypes =  {
    additionalStyle: T.shape({
       color: T.string,
       textDecoration: T.string,
-   }).isRequired
+   })
 };
