@@ -9,6 +9,7 @@ const  App = () => {
     const {
         todos,
         onAdd,
+        onEdit,
         onSwitch,
         onRemove
     } = useTodosHook();
@@ -23,6 +24,7 @@ const  App = () => {
             {...{todo}}
             onSwitch={onSwitch}
             onRemove={onRemove}
+            onEdit={onEdit}
             />
          )}
       </div>

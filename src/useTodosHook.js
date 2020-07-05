@@ -20,6 +20,11 @@ export  const  useTodosHook = () => {
         }
     );
 
+    const onEdit = newTodo => dispatch({
+        newTodo,
+        type: TODOS_ACTION.EDIT
+    })
+
     useEffect(() => {
         const todosStringified = JSON.stringify((todos));
         localStorage.setItem('todos', todosStringified);
@@ -27,6 +32,7 @@ export  const  useTodosHook = () => {
 
     return {
         todos,
+        onEdit,
         onAdd,
         onSwitch,
         onRemove
