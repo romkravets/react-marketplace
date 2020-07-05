@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import {routes} from './routes';
 
 
+const modifiedAboutRouter = `${routes.ABOUT}?name=testAboutName`;
+
+
 export const  Header = () => (
     <ul>
         <li>
@@ -13,7 +16,7 @@ export const  Header = () => (
             <Link to={routes.PRODUCTS}>Products</Link>
         </li>
         <li>
-            <Link to={routes.ABOUT}>About</Link>
+            <Link to={modifiedAboutRouter}>About</Link>
         </li>
     </ul>
  )
