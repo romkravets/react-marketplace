@@ -1,8 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import T from 'prop-types';
 
 export const ToDoInput = ({ onAdd, initialValue }) => {
    const [value, setInputValue] = useState(initialValue);
+
+   const textInput = useRef();
 
    const onChange = event => setInputValue(event.target.value);
 
@@ -13,9 +15,11 @@ export const ToDoInput = ({ onAdd, initialValue }) => {
       setInputValue('');
    }
 
+   useEffect(() => textInput.current.focus(),[]);
+
    return (
       <form onSubmit={onSubmit}>
-         <input {...{ value }} onChange={onChange} />
+         <input {...{ value }} onChange={onChange} ref={textInput}/>
       </form>
    )
 }
