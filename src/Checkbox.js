@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { toDoListPropTypes } from './propTypes';
-import { todosContext } from './todosContext';
+import { TodosContext } from './TodosContext';
 
 export const Checkbox = ({todo, onSwitch}) => {
    const [checked, setChecked] = useState(false);
-   const theme = useContext(todosContext);
-   console.log(theme, 'theme');
+   const theme = useContext(TodosContext);
+   console.log(theme);
 
    const onChange = event => {
       onSwitch(event.target.value);
