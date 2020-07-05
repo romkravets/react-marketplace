@@ -5,7 +5,7 @@ import {ToDoInput} from "./ToDoInput";
 export const ToDoText = ({todo, onEdit, additionalStyle}) => {
     const  [isEditeble, setIsEditeble] = useState(false);
 
-    const onClick = () => setIsEditeble(true);
+    const onClick = () => todo.completed ? null : setIsEditeble(true);
 
     const onSaveChanges = text => {
         setIsEditeble(false);

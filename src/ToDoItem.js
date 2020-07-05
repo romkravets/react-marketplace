@@ -3,7 +3,6 @@ import T from 'prop-types';
 import { toDoListPropTypes } from './propTypes';
 import {Checkbox} from './Checkbox';
 import {withCheckedStyles} from './whithCheckedStyle';
-import {Text} from './Text';
 import {Icon} from './Icon';
 
 import './index.css';
