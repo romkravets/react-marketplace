@@ -5,7 +5,6 @@ export const Checkbox = ({todo, onSwitch}) => {
    const [checked, setChecked] = useState(false);
 
    const onChange = event => {
-      console.log(event.target.value, 'event.target.value');
       onSwitch(event.target.value);
       setChecked(!checked);
    }
