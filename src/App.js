@@ -4,17 +4,27 @@ import './App.css';
 import PostList from './components/PostList';
 import axios from 'axios';
 import Loader from './components/UI/Loader ';
+import Search from "./components/UI/Search";
 
 function App() {
   const [posts, setPosts] = useState([]);
   const [load, setLoad] = useState(false);
   const [limit, setLimit] = useState(10);
 
-  console.log(limit, limit);
-
   const onAdd = () => {
     return setLimit(limit + 10);
  }
+
+ const onSearch = value => {
+        if (value === '') {
+            setPosts(posts);
+        } else {
+            const filterPosts = posts.filter(post => post.title.includes(value))
+                return (
+                    setPosts(filterPosts)
+                )
+        }
+    }
 
 
   useEffect(() => {
@@ -26,7 +36,6 @@ function App() {
          }
       }
     );
-      console.log(result.data);
       setPosts(result.data);
       setLoad(true);
     };
@@ -36,9 +45,12 @@ function App() {
   let postsAll = <Loader />;
 
   if (load) {
-    postsAll = <div className="App">
-      <PostList posts={posts} onAdd={onAdd}/>
-  </div>
+    postsAll = (
+        <div className="App">
+            <Search onSearch={onSearch}/>
+            <PostList {...{posts}} onAdd={onAdd}/>
+        </div>
+    )
   }
 
   return  <Fragment>{postsAll}</Fragment>

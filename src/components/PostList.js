@@ -10,7 +10,7 @@ const PostList = (props) => {
          <div className="post-items">
          {props.posts.map( post => {
             return (
-            <PostListItem post={post}/>
+            <PostListItem {...{post}}/>
             )
          })
          }

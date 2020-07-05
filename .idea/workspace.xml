@@ -19,7 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f22d319-5f77-452f-abbc-c4a39560b487" name="Default Changelist" comment="" />
+    <list default="true" id="7f22d319-5f77-452f-abbc-c4a39560b487" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/UI/Search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Clock.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PostList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PostList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PostListItem .js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PostListItem .js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,6 +41,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -53,7 +61,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1593933562715</updated>
-      <workItem from="1593933572145" duration="707000" />
+      <workItem from="1593933572145" duration="801000" />
+      <workItem from="1593934377670" duration="3770000" />
     </task>
     <servers />
   </component>
@@ -70,5 +79,16 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1593934373221">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728/-1280.0.1280.984@0.0.1366.728" timestamp="1593934373221" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1593935296184">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/-1280.0.1280.984@0.0.1366.728" timestamp="1593935296184" />
   </component>
 </project>

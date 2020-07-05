@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PostListItem = (props) => {
+const PostListItem = ({...props}) => {
    return (
       <div key={props.post.id}>
          <h2>{props.post.title}</h2>
