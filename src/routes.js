@@ -3,5 +3,5 @@ export const routes = {
     PRODUCTS: '/products',
     ABOUT: '/about',
     LOGIN: '/login',
-    NOT_FOUND: './not-found'
+    NOT_FOUND: '/not-found'
 }
