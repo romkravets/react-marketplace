@@ -8,7 +8,7 @@ import {routes} from './routes';
 import {AboutPage} from "./AboutPage";
 import {LoginPage} from "./LoginPage";
 
-const isLoggedIn = true;
+const isLoggedIn = false;
 
 const  App = () => {
   return (
